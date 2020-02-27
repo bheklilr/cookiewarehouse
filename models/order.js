@@ -13,6 +13,7 @@ const orderSchema = new mongoose.Schema({
   contact: req(String),
   location: req(String),
   order: [CookieOrder],
+  shipped: { type: Boolean, default: false },
   source: opt(String),
   filled: opt(Boolean),
   paid: opt(Boolean),
@@ -24,7 +25,7 @@ const orderSchema = new mongoose.Schema({
   updated: { type: Date, default: null },
   filledAt: { type: Date, default: null },
   deliveredAt: { type: Date, default: null },
-  paymentReceivedAt: { type: Date, default: null },
+  paymentReceivedAt: { type: Date, default: null }
 });
 
 const Order = mongoose.model("Order", orderSchema);
