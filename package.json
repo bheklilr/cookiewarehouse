@@ -7,8 +7,12 @@
   "author": "Aaron Stevens <bheklilr2@gmail.com>",
   "license": "MIT",
   "private": true,
+  "engines": {
+      "yarn": "1.x"
+  },
   "scripts": {
-    "start": "cd client && yarn build && cd .. && nodemon server.js"
+    "build": "cd client && yarn build",
+    "start": "nodemon server.js"
   },
   "dependencies": {
     "express": "^4.17.1",
