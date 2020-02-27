@@ -1,0 +1,10 @@
+{
+  "name": "cookiewarehouse",
+  "version": "1.0.0",
+  "description": "An app to manage Girl Scout Cookie orders",
+  "main": "server.js",
+  "repository": "https://github.com/bheklilr/cookiewarehouse.git",
+  "author": "Aaron Stevens <bheklilr2@gmail.com>",
+  "license": "MIT",
+  "private": true
+}
