@@ -6,5 +6,15 @@
   "repository": "https://github.com/bheklilr/cookiewarehouse.git",
   "author": "Aaron Stevens <bheklilr2@gmail.com>",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "scripts": {
+    "start": "cd client && yarn build && cd .. && nodemon server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.9.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
 }
