@@ -12,7 +12,7 @@ const orderSchema = new mongoose.Schema({
   customer: req(String),
   contact: req(String),
   location: req(String),
-  order: [CookieOrder],
+  order: [cookieOrderSchema],
   shipped: { type: Boolean, default: false },
   source: opt(String),
   filled: opt(Boolean),
