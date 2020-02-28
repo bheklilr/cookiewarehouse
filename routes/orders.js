@@ -45,4 +45,24 @@ router.put("/:id", async function(req, res) {
   }
 });
 
+router.delete("/:id", async function(req, res) {
+  try {
+    const deletedOrder = await OrdersController.deleteOrder(req.params.id);
+    res.json(deletedOrder);
+  } catch (error) {
+    res.status(404);
+    res.json({ error });
+  }
+});
+
+router.delete("/", async function(req, res) {
+  try {
+    const deletedOrder = await OrdersController.deleteAll();
+    res.json(deletedOrders);
+  } catch (error) {
+    res.status(404);
+    res.json({ error });
+  }
+});
+
 module.exports = router;

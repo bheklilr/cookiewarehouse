@@ -21,9 +21,21 @@ async function addOrder(order) {
   return data;
 }
 
+async function deleteOrder(id) {
+  const data = await Order.findByIdAndRemove(id);
+  return data;
+}
+
+async function deleteAll() {
+  const data = await Order.deleteMany({});
+  return data;
+}
+
 module.exports = {
   getAll,
   getById,
   updateOrder,
-  addOrder
+  addOrder,
+  deleteOrder,
+  deleteAll
 };
