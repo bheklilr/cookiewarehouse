@@ -1,0 +1,105 @@
+.new-order {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: rgb(212, 224, 224);
+  padding-bottom: 1rem;
+}
+.new-order>* {
+    flex-basis: 100%;
+}
+
+.new-order > h1 {
+  margin: 0.5rem;
+}
+
+.new-order-inputs {
+  padding: 0 1rem 0 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.new-order-total {
+  text-align: center;
+  margin: 0;
+}
+
+.text-input {
+  font-family: "Courgette";
+  font-size: 1rem;
+  padding: 0.4rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: 8px;
+  border: none;
+  background-color: #c4c4c4;
+  color: #545454;
+}
+
+.checkbox {
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+.checkbox > span {
+  margin-right: 0.5rem;
+}
+
+.new-order-options {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 49%
+}
+
+.cookie-counter {
+  display: flex;
+  flex-direction: row;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.cookie-counter .cookie-counter-text {
+  flex-grow: 1;
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.icon-button {
+  font-size: 1.5rem;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border-radius: 1rem;
+  border: none;
+  box-shadow: 3px 3px 4px 0px rgba(0, 0, 0, 0.5);
+}
+
+button {
+    color: #15191A;
+    font-size: 1.5rem;
+    border-radius: 8px;
+    font-family: 'Courgette';
+    transition: background-color 0.5s ease-in-out,
+                color 0.5s ease-in-out;
+}
+
+button.create-new-order {
+    background-color: #7198FD;
+    flex-basis: 49%;
+}
+
+button:disabled {
+    color: #c4c4c4;
+    background-color: rgb(140, 159, 207);
+}
