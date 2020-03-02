@@ -8,7 +8,7 @@
   "license": "MIT",
   "private": true,
   "engines": {
-      "yarn": "1.x"
+    "yarn": "1.x"
   },
   "scripts": {
     "build": "cd client && yarn install && yarn build",
@@ -20,5 +20,6 @@
     "nodemon": "^2.0.2"
   },
   "devDependencies": {
+    "minimist": "^1.2.0"
   }
 }

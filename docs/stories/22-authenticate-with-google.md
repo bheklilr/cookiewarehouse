@@ -1,0 +1,1 @@
+As a user, I want to create an account via Google OAuth, so that it is easy and secure to sign in to the service.
