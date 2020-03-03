@@ -11,10 +11,15 @@
     "yarn": "1.x"
   },
   "scripts": {
-    "build": "cd client && yarn install && yarn build",
-    "start": "nodemon server.js",
+    "build": "yarn build-client && yarn build-server",
+    "start": "yarn start-server",
+    "start-server": "nodemon build/server.js",
+    "build-server": "./node_modules/.bin/babel server --out-dir build",
     "create-story": "node docs/stories/create-story.js",
-    "deploy": "git stash && git checkout master && git pull && git checkout release && git rebase master && git push && git checkout master"
+    "deploy": "git stash && git checkout master && git pull && git checkout release && git rebase master && git push && git checkout master",
+    "start-client": "cd client && yarn start",
+    "test-client": "cd client && yarn test",
+    "build-client": "cd client && yarn install && yarn build"
   },
   "dependencies": {
     "express": "^4.17.1",
@@ -22,6 +27,20 @@
     "nodemon": "^2.0.2"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
     "minimist": "^1.2.0"
+  },
+  "babel": {
+    "presets": [
+      "env",
+      {
+        "modules": false,
+        "targets": {
+          "node": "current"
+        }
+      }
+    ]
   }
 }
