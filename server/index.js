@@ -1,12 +1,12 @@
-const express = require("express");
-require('./db');
+import express, { urlencoded, json } from "express";
+import './db';
 const app = express();
-const routes = require('./routes');
+import routes from './routes';
 
 const PORT = process.env.PORT || 5000;
 
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+app.use(urlencoded({ extended: true }));
+app.use(json());
 
 // Routes
 app.use(express.static('client/build'));

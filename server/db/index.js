@@ -1,7 +1,6 @@
-const mongoose = require("mongoose");
+import { connect } from "mongoose";
 
-mongoose
-  .connect(
+connect(
     process.env.MONGODB_URI ||
       '',
     { useNewUrlParser: true, useUnifiedTopology: true }

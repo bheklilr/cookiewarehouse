@@ -1,14 +1,14 @@
-const mongoose = require("mongoose");
-const { req, opt } = require("./util");
+import { Schema, model } from "mongoose";
+import { req, opt } from "./util";
 
-const cookieOrderSchema = new mongoose.Schema({
+const cookieOrderSchema = new Schema({
   cookie: req(String),
   count: req(Number)
 });
 
-const CookieOrder = mongoose.model("CookieOrder", cookieOrderSchema);
+const CookieOrder = model("CookieOrder", cookieOrderSchema);
 
-const orderSchema = new mongoose.Schema({
+const orderSchema = new Schema({
   customer: req(String),
   contact: req(String),
   location: req(String),
@@ -28,9 +28,9 @@ const orderSchema = new mongoose.Schema({
   paymentReceivedAt: { type: Date, default: null }
 });
 
-const Order = mongoose.model("Order", orderSchema);
+const Order = model("Order", orderSchema);
 
-module.exports = {
+export default {
   CookieOrder,
   Order
 };

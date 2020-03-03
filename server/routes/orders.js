@@ -1,10 +1,12 @@
-const router = require("express").Router();
-const { CookieOrder } = require("../models");
-const OrdersController = require("../controllers/orders");
+import { Router } from 'express';
+import { CookieOrder } from "../models";
+import { getAll, getById, addOrder, updateOrder, deleteOrder, deleteAll } from "../controllers/orders";
+
+const router = Router();
 
 router.get("/", async function(req, res) {
   try {
-    const orders = await OrdersController.getAll();
+    const orders = await getAll();
     res.json(orders);
   } catch (error) {
     res.status(400);
@@ -14,7 +16,7 @@ router.get("/", async function(req, res) {
 
 router.get("/:id", async function(req, res) {
   try {
-    const order = await OrdersController.getById(req.params.id);
+    const order = await getById(req.params.id);
     res.json(order);
   } catch (error) {
     res.status(404);
@@ -24,7 +26,7 @@ router.get("/:id", async function(req, res) {
 
 router.post("/", async function(req, res) {
   try {
-    const newOrder = await OrdersController.addOrder(req.body);
+    const newOrder = await addOrder(req.body);
     res.json(newOrder);
   } catch (error) {
     res.status(400);
@@ -34,7 +36,7 @@ router.post("/", async function(req, res) {
 
 router.put("/:id", async function(req, res) {
   try {
-    const updatedOrder = await OrdersController.updateOrder(
+    const updatedOrder = await updateOrder(
       req.params.id,
       req.body
     );
@@ -47,7 +49,7 @@ router.put("/:id", async function(req, res) {
 
 router.delete("/:id", async function(req, res) {
   try {
-    const deletedOrder = await OrdersController.deleteOrder(req.params.id);
+    const deletedOrder = await deleteOrder(req.params.id);
     res.json(deletedOrder);
   } catch (error) {
     res.status(404);
@@ -57,7 +59,7 @@ router.delete("/:id", async function(req, res) {
 
 router.delete("/", async function(req, res) {
   try {
-    const deletedOrder = await OrdersController.deleteAll();
+    const deletedOrder = await deleteAll();
     res.json(deletedOrders);
   } catch (error) {
     res.status(404);
@@ -65,4 +67,4 @@ router.delete("/", async function(req, res) {
   }
 });
 
-module.exports = router;
+export default router;

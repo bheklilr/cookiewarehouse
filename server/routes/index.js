@@ -1,6 +1,8 @@
-const router = require('express').Router({ mergeParams: true });
-const orders = require('./orders');
+import { Router } from 'express';
+import orders from './orders';
+
+const router = Router({ mergeParams: true });
 
 router.use('/orders', orders);
 
-module.exports = router;
+export default router;

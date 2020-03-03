@@ -1,4 +1,4 @@
-const { Order } = require("../models");
+import { Order } from "../models";
 
 async function getAll() {
   const orders = await Order.find({});
@@ -12,8 +12,8 @@ async function getById(id) {
 
 async function updateOrder(id, update) {
   const current = await Order.findOne({ _id: id });
-  const update = await Order.updateOne({ _id: id }, { ...current, ...update });
-  return update;
+  const updatedRecord = await Order.updateOne({ _id: id }, { ...current, ...update });
+  return updatedRecord;
 }
 
 async function addOrder(order) {
@@ -31,7 +31,7 @@ async function deleteAll() {
   return data;
 }
 
-module.exports = {
+export default {
   getAll,
   getById,
   updateOrder,
