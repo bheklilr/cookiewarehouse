@@ -13,7 +13,7 @@
   "scripts": {
     "build": "yarn build-client && yarn build-server",
     "start": "yarn start-server",
-    "start-server": "nodemon build/server.js",
+    "start-server": "nodemon build/index.js",
     "build-server": "./node_modules/.bin/babel server --out-dir build",
     "create-story": "node docs/stories/create-story.js",
     "deploy": "git stash && git checkout master && git pull && git checkout release && git rebase master && git push && git checkout master",
@@ -22,25 +22,32 @@
     "build-client": "cd client && yarn install && yarn build"
   },
   "dependencies": {
+    "core-js": "3",
     "express": "^4.17.1",
     "mongoose": "^5.9.2",
     "nodemon": "^2.0.2"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
-    "babel-preset-env": "^1.7.0",
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.6",
+    "@babel/preset-env": "^7.8.6",
     "minimist": "^1.2.0"
   },
   "babel": {
     "presets": [
-      "env",
-      {
-        "modules": false,
-        "targets": {
-          "node": "current"
+      [
+        "@babel/preset-env",
+        {
+          "useBuiltIns": "entry",
+          "targets": {
+            "node": "current"
+          },
+          "corejs": "3"
         }
-      }
+      ]
+    ],
+    "plugins": [
+      "@babel/plugin-transform-modules-commonjs"
     ]
   }
 }
